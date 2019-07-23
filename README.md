@@ -1,3 +1,9 @@
+# Sources
+
+- https://codeytek.com/live-search-search-react-live-search-in-react-axios-autocomplete-pagination/
+- https://youtu.be/22SAhH5JxYk
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
