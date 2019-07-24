@@ -81,13 +81,22 @@ class Search extends Component {
     event.preventDefault()
 
     const query = event.target.value;
-    this.setState({
-      query: query,
-      loading: true,
-      message: '',
-    }, () => {
-      this.fetchSearchResults(1, query)
-    })
+    
+    if ( !query ) {
+      this.setState({
+        query,
+        loading: true,
+        message: ''
+      })
+    } else {
+      this.setState({
+        query: query,
+        loading: true,
+        message: '',
+      }, () => {
+        this.fetchSearchResults(1, query)
+      })
+    }
   }
 
   render() {
