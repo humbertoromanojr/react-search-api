@@ -7,6 +7,10 @@
 .search-label {
   position: relative;
 }
+
+.search-label input {
+  box-shadow: 3px 2px #898989;
+}
   
 .container input {
     width: 100%;
@@ -35,11 +39,9 @@
   .result-item {
     position: relative;
     padding: 16px;
-    border: 1px solid #898989;
     margin: 16px;
     text-align: center;
     min-width: 200px;
-    box-shadow: 2px 1px #898989
   }
 
   .image-username {
@@ -70,7 +72,8 @@
     position: absolute;
     left: 0;
     right: 0;
-    margin: auto;
+    top: 250px;
+    margin: 0 auto;
   }
 
   .show {
