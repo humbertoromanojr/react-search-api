@@ -73,7 +73,7 @@ class Search extends Component {
   }
 
   handlePageClick = (type) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     const updatePageNo = 'prev' === type
       ? this.state.currentPageNo - 1
@@ -113,15 +113,16 @@ class Search extends Component {
   }
 
   handleChange = (event) => {
-    event.preventDefault()
-
     const query = event.target.value;
     
     if ( !query ) {
       this.setState({
         query,
-        loading: true,
-        message: ''
+        results: {},
+        message: '',
+        totalResults: 0,
+        totalPages: 0,
+        currentPageNo: 0
       })
     } else {
       this.setState({
@@ -165,8 +166,8 @@ class Search extends Component {
           loading={loading}
           showPrevLink={showPrevLink}
           showNextLink={showNextLink}
-          handlePrevClick={() => this.handlePageClick('prev', event)} 
-          handleNextClick={() => this.handlePageClick('next', event)}
+          handlePrevClick={() => this.handlePageClick('prev')} 
+          handleNextClick={() => this.handlePageClick('next')}
         />
 
         {/* Result */}
@@ -177,8 +178,8 @@ class Search extends Component {
           loading={loading}
           showPrevLink={showPrevLink}
           showNextLink={showNextLink}
-          handlePrevClick={() => this.handlePageClick('prev', event)} 
-          handleNextClick={() => this.handlePageClick('next', event)}  
+          handlePrevClick={() => this.handlePageClick('prev')} 
+          handleNextClick={() => this.handlePageClick('next')}  
         />
     </div>
     )
