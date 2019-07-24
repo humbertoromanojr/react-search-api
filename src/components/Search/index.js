@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 
+import PageNavigation from '../PageNavigation'
 import './styles.css';
 import Loader from '../../loader.gif'
 
@@ -71,7 +72,7 @@ class Search extends Component {
     })
   }
 
-  handlePageClick = (event, type) => {
+  handlePageClick = (type) => {
     event.preventDefault();
 
     const updatePageNo = 'prev' === type
@@ -136,8 +137,8 @@ class Search extends Component {
   render() {
     const { query, loading, message, currentPageNo, totalPages } = this.state;
 
-    const showLink = 1 < currentPageNo
-    const showNext = totalPages > currentPageNo;
+    const showPrevLink = 1 < currentPageNo
+    const showNextLink = totalPages > currentPageNo;
     
     return (
       <div className="container">
@@ -159,8 +160,26 @@ class Search extends Component {
         {/* Loading */}
         <img src={Loader} className={`search-loading ${loading ? 'show' : 'hide'}`} alt="loading" />
 
+        {/* Navigation */}
+        <PageNavigation 
+          loading={loading}
+          showPrevLink={showPrevLink}
+          showNextLink={showNextLink}
+          handlePrevClick={() => this.handlePageClick('prev', event)} 
+          handleNextClick={() => this.handlePageClick('next', event)}
+        />
+
         {/* Result */}
         {this.renderSearchResults()}
+
+        {/* Navigation */}
+        <PageNavigation 
+          loading={loading}
+          showPrevLink={showPrevLink}
+          showNextLink={showNextLink}
+          handlePrevClick={() => this.handlePageClick('prev', event)} 
+          handleNextClick={() => this.handlePageClick('next', event)}  
+        />
     </div>
     )
   }
