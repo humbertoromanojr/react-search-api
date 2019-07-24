@@ -14,9 +14,20 @@ class Search extends Component {
       results: {},
       loading: false,
       message: '',
+
+      totalResults: 0,
+      totalPages: 0,
+      currentPageNo: 0,
     };
 
     this.cancel = '';
+  }
+
+  getPageCount = (total, denominator) => {
+    const divisible = 0 === total % denominator;
+    const valueToBeAdded = divisible ? 0 : 1;
+
+    return Math.floor( total/denominator ) + valueToBeAdded
   }
 
   fetchSearchResults = (updatedPagNo = '', query) => {
@@ -34,12 +45,18 @@ class Search extends Component {
       cancelToken: this.cancel.token
     })
     .then(res => {
+      const total = res.data.total;
+      const totalPagesCount = this.getPageCount( total, 20 )
+
       const resultNotFoundMsg = ! res.data.hits.length
                               ? 'There are no more search results. Please try a new search!'
                               : '';
       this.setState({
         results: res.data.hits,
         message: resultNotFoundMsg,
+        totalResults: total,
+        totalPages: totalPagesCount,
+        currentPageNo: updatedPagNo,
         loading: false
       })
                             
@@ -52,6 +69,23 @@ class Search extends Component {
         })
       }
     })
+  }
+
+  handlePageClick = (event, type) => {
+    event.preventDefault();
+
+    const updatePageNo = 'prev' === type
+      ? this.state.currentPageNo - 1
+      : this.state.currentPageNo + 1
+
+      if ( ! this.state.loading ) {
+        this.setState({ 
+          loading: true,
+          message: ''
+         }, () => {
+           this.fetchSearchResults(updatePageNo, this.state.query)
+         })
+      }
   }
 
   renderSearchResults = () => {
@@ -100,7 +134,10 @@ class Search extends Component {
   }
 
   render() {
-    const { query, loading, message } = this.state;
+    const { query, loading, message, currentPageNo, totalPages } = this.state;
+
+    const showLink = 1 < currentPageNo
+    const showNext = totalPages > currentPageNo;
     
     return (
       <div className="container">
