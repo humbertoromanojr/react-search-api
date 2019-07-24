@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 import './styles.css';
+import Loader from '../../loader.gif'
 
 class Search extends Component {
 
@@ -38,7 +39,7 @@ class Search extends Component {
                               : '';
       this.setState({
         results: res.data.hits,
-        messsage: resultNotFoundMsg,
+        message: resultNotFoundMsg,
         loading: false
       })
                             
@@ -63,9 +64,9 @@ class Search extends Component {
             results.map(result => {
               return (
                 <a key={result.id} href={result.previewURL} className="result-item">
-                  <h6 className="image-username">{result.username}</h6>
+                  <h6 className="image-username">{result.user}</h6>
                   <div className="image-wrapper">
-                    <img className="image" src={result.previewURL} alt={`${result.username} image`}/>
+                    <img className="image" src={result.previewURL} alt={`${result.user} image`}/>
                   </div>
                 </a>
               )
@@ -90,7 +91,7 @@ class Search extends Component {
   }
 
   render() {
-    const { query } = this.state;
+    const { query, loading, message } = this.state;
     
     return (
       <div className="container">
@@ -106,6 +107,13 @@ class Search extends Component {
           <i className="fa fa-search search-icon" aria-hidden="true" />
         </label>
 
+        {/* Error message */}
+        { message && <p className="message">{ message }</p> }
+
+        {/* Loading */}
+        <img src={Loader} className={`search-loading ${loading ? 'show' : 'hide'}`} alt="loading" />
+
+        {/* Result */}
         {this.renderSearchResults()}
     </div>
     )
