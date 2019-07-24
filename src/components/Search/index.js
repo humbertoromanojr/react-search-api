@@ -53,6 +53,29 @@ class Search extends Component {
     })
   }
 
+  renderSearchResults = () => {
+    const { results } = this.state
+
+    if (Object.keys(results).length && results.length) {
+      return (
+        <div className="results-container">
+          {
+            results.map(result => {
+              return (
+                <a key={result.id} href={result.previewURL} className="result-item">
+                  <h6 className="image-username">{result.username}</h6>
+                  <div className="image-wrapper">
+                    <img className="image" src={result.previewURL} alt={`${result.username} image`}/>
+                  </div>
+                </a>
+              )
+            })
+          }
+        </div>
+      )
+    }
+  }
+
   handleChange = (event) => {
     event.preventDefault()
 
@@ -82,6 +105,8 @@ class Search extends Component {
           />
           <i className="fa fa-search search-icon" aria-hidden="true" />
         </label>
+
+        {this.renderSearchResults()}
     </div>
     )
   }
