@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
 
-import { Container, SearchInput } from './styles';
+import './styles.css';
 
 class Search extends Component {
   render() {
     return (
-      <Container>
-        <SearchInput htmlFor="search-input">
-          <input type="text" value="" ir="search-input" 
-          placeholder="Search..." />
-        </SearchInput>
-        <i className="fa fa-search" aria-hidden="true" />
-    </Container>
+      <div className="container">
+        <label className="search-label" htmlFor="search-input">
+          <input 
+          type="text" 
+          value="" 
+          id="search-input" 
+          placeholder="Search..." 
+          />
+          <i className="fa fa-search search-icon" aria-hidden="true" />
+        </label>
+    </div>
     )
   }
 }
