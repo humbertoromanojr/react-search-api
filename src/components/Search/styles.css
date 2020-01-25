@@ -40,7 +40,7 @@
     padding: 0px;
     margin: 6px;
     text-align: center;
-    min-width: 200px;
+    min-width: 170px;
     box-shadow: 0 0 12px rgb(177, 173, 173);
     padding: 2px;
     border-radius: 6px;
@@ -57,7 +57,7 @@
 
   .image-username {
     color: #ffffff;
-    font-size: 18px;
+    font-size: 12px;
     background-color: rgba(26, 13, 145, 0.8);
     padding: 7px 18px;
     border-radius: 6px 6px 0 0;
