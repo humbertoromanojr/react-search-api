@@ -39,7 +39,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://opens
 ### Demonstration 
 <p align="center">
 <br>
-  <img src="https://i.ibb.co/qDrFhL6/react-search-api.gif" alt="react-search-api" border="0">
+  <img src="https://i.ibb.co/5Mh3Wxg/react-search-api.gif" alt="react-search-api" border="0">
 <br>
 </p>
 
