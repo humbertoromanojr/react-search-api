@@ -1,7 +1,6 @@
 <h1 align="center">
-<br>
   Project Search
-<br>
+<br><br>
 </h1>
 
 ### Technologies
@@ -40,7 +39,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://opens
 ### Demonstration 
 <p align="center">
 <br>
-  
+  <img src="https://i.ibb.co/KhShS1q/react-search-api.gif" alt="react-search-api" border="0">
 <br>
 </p>
 
