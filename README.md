@@ -4,7 +4,7 @@
 <br>
 </h1>
 
-## Technologies
+### Technologies
 
 - ⚛️ **React Js** — A JavaScript library for building user interfaces
 
@@ -18,7 +18,7 @@
 - https://youtu.be/22SAhH5JxYk
 
 
-## Installation
+### Installation
 git clone [github](https://github.com/humbertoromanojr/react-search-api).
 
 `cd react-search-api`
@@ -33,11 +33,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-## License
+### License
 This project is licensed under the MIT License - see the [LICENSE](https://opensource.org/licenses/MIT) page for details.
 
 
-## Demonstration 
+### Demonstration 
 <p align="center">
 <br>
   
