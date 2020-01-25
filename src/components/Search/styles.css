@@ -37,22 +37,35 @@
   }
 
   .result-item {
-    position: relative;
-    padding: 16px;
-    margin: 16px;
+    padding: 0px;
+    margin: 6px;
     text-align: center;
     min-width: 200px;
+    box-shadow: 0 0 12px rgb(177, 173, 173);
+    padding: 2px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .result-item:hover {
+    box-shadow: 0 0 12px rgb(88, 86, 86);
+    padding: 2px;
+    border-radius: 6px;
+    transform: scale(1.05);
+    transition: all 0.6s ease-in-out;
   }
 
   .image-username {
-    color: #ff7f50;
+    color: #ffffff;
     font-size: 18px;
-    position: absolute;
-    bottom: 0;
-    margin: 0;
-    right: 0;
-    background-color: rgba(0,0,0,0.8);
-    padding: 5px 18px;
+    background-color: rgba(26, 13, 145, 0.8);
+    padding: 7px 18px;
+    border-radius: 6px 6px 0 0;
+  }
+
+  h6.image-username {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
   }
 
   .image-wrapper {
