@@ -19,7 +19,7 @@ code {
 }
 
 .App-header {
-  background-color: #353533;
+  background-color:  rgba(26, 13, 145, 0.8);
   height: 80px;
   width: 100%;
   display: flex;
@@ -27,10 +27,14 @@ code {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  transition: all 0.3s ease-in-out;
 }
 
-.App-header h1 {
-  text-shadow: 2px 1px rgb(255, 251, 251)
+.App-header:hover {
+  background-color:  rgb(215, 217, 233);
+  color: rgba(26, 13, 145, 0.8);
+  text-shadow: 0 0 12px rgb(199, 197, 197);
+  transition: all 0.6s ease-in-out;
 }
 
